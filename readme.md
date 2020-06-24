@@ -2,8 +2,10 @@
 
 Turns IRC formatted text into easy to use blocks. This library is meant to parse and facilitate compiling to and from the irc caret notation. If you're looking for a means to style messages that your bot sends out, or merely strip the formatting, I'd suggest you check out [`irc-colors`](https://www.npmjs.com/package/irc-colors) instead.
 
+Foked from [`irc-formatting`](https://www.npmjs.com/package/irc-formatting) with added code block support.
+
 ## Installation
-`npm install irc-formatting --save`
+`npm install --save Heath123/irc-formatting-fork`
 
 ## Usage
 
@@ -16,6 +18,7 @@ Turns IRC formatted text into easy to use blocks. This library is meant to parse
     bold: false,
     italic: false,
     underline: false,
+    code: false,
     reverse: false,
     color: -1,
     highlight: -1 },
@@ -24,6 +27,7 @@ Turns IRC formatted text into easy to use blocks. This library is meant to parse
     bold: true,
     italic: false,
     underline: false,
+    code: false,
     reverse: false,
     color: -1,
     highlight: -1 },
@@ -32,6 +36,7 @@ Turns IRC formatted text into easy to use blocks. This library is meant to parse
     bold: true,
     italic: false,
     underline: false,
+    code: false,
     reverse: false,
     color: 4,
     highlight: 7 } ]
@@ -67,12 +72,13 @@ Turns IRC formatted text into easy to use blocks. This library is meant to parse
 - `.U`: Underline
 - `.B`: Bold
 - `.I`: Italic
+- `.CODE`: Code block
 - `.C`: Color
 - `.R`: Reverse
 - `.O`: Reset (`CTRL + O` on mIRC)
 
 ### HTML Rendering
-`.U`, `.B` and `.I` will use `<u>`, `<b>` and `<i>` tags respectively, while the others will use `<span>`-tags with the following classes.
+`.U`, `.B`, `.I` and `.CODE` will use `<u>`, `<b>`, `<i>` and `<code>` tags respectively, while the others will use `<span>`-tags with the following classes.
 
 - `ircf-reverse`: Reversing is applied (color and higliht are swapped)
 - `ircf-no-color`: The above class is set, but neither of the below are.
