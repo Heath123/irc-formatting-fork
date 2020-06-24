@@ -1,0 +1,49 @@
+{
+  "_from": "irc-formatting",
+  "_id": "irc-formatting@1.0.0-rc3",
+  "_inBundle": false,
+  "_integrity": "sha1-lSDqPWpBuDk5SyHFEbWf6+2lU3c=",
+  "_location": "/irc-formatting",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "irc-formatting",
+    "name": "irc-formatting",
+    "escapedName": "irc-formatting",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/irc-formatting/-/irc-formatting-1.0.0-rc3.tgz",
+  "_shasum": "9520ea3d6a41b839394b21c511b59febeda55377",
+  "_spec": "irc-formatting",
+  "_where": "/home/heath/irc",
+  "author": {
+    "name": "Gisle"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "zeropad": "^1.1.0"
+  },
+  "deprecated": false,
+  "description": "IRC formatting parser",
+  "devDependencies": {},
+  "keywords": [
+    "irc",
+    "irc-format",
+    "irc-color",
+    "irc-colors"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "irc-formatting",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0-rc3"
+}
