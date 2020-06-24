@@ -28,7 +28,7 @@ ircf.parse = function(text) {
 
     switch(ch) {
       // bold, italic, underline
-      case "\x02": case "\x1d": case "\x1f": {
+      case "\x02": case "\x1d": case "\x1f": case "\x11": {
         prev = current;
         current = new Block(prev);
 
@@ -127,6 +127,10 @@ ircf.renderIrc = function(blocks) {
     if(block.underline !== prev.underline) {
       carets += ircf.U;
     }
+    
+    if(block.code !== prev.code) {
+      carets += ircf.CODE;
+    }
 
     if(block.reverse !== prev.reverse) {
       carets += ircf.R;
@@ -177,6 +181,10 @@ ircf.renderHtml = function(blocks) {
 
     if(block.bold) {
       tags.push(ircf.TAG_BOLD);
+    }
+    
+    if(block.code) {
+      tags.push(ircf.TAG_CODE);
     }
 
     if(block.reverse) {
@@ -286,6 +294,7 @@ ircf.swigInline = function(input) {
 ircf.B = '\x02';
 ircf.I = '\x1d';
 ircf.U = '\x1f';
+ircf.CODE = '\x1f';
 ircf.C = '\x03';
 ircf.R = '\x16';
 ircf.O = '\x0f';
@@ -293,11 +302,13 @@ ircf.C_REGEX = /\x03(\d\d?)(,(\d\d?))?/g;
 ircf.KEYS = {
   "\x02": 'bold',
   "\x1d": 'italic',
-  "\x1f": 'underline'
+  "\x1f": 'underline',
+  "\x11": 'code'
 }
 ircf.TAG_BOLD = 'b';
 ircf.TAG_ITALIC = 'i';
 ircf.TAG_UNDERLINE = 'u';
+ircf.TAG_CODE = 'code';
 ircf.TAG_BLOCK = 'span';
 ircf.TAG_LINE = 'p';
 ircf.CLASS_REVERSE = 'ircf-reverse';
