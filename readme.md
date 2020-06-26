@@ -6,6 +6,7 @@ Foked from [`irc-formatting`](https://www.npmjs.com/package/irc-formatting) with
 
 ## Installation
 `npm install --save Heath123/irc-formatting-fork`
+It's a drop-in replacement for the normal `irc-formatting`
 
 ## Usage
 
