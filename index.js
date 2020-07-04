@@ -132,7 +132,7 @@ ircf.renderIrc = function(blocks) {
       carets += ircf.CODE;
     }
     
-    if(block.code !== prev.code) {
+    if(block.strikethrough !== prev.strikethrough) {
       carets += ircf.S;
     }
 
