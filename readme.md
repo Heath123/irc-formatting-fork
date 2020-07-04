@@ -5,7 +5,7 @@ Turns IRC formatted text into easy to use blocks. This library is meant to parse
 Foked from [`irc-formatting`](https://www.npmjs.com/package/irc-formatting) with added code block support.
 
 ## Installation
-`npm install --save Heath123/irc-formatting-fork`
+`npm install --save Heath123/irc-formatting-fork`<br>
 It's a drop-in replacement for the normal `irc-formatting`
 
 ## Usage
@@ -14,33 +14,41 @@ It's a drop-in replacement for the normal `irc-formatting`
 > var ircf = require('irc-formatting');
 > s = "Hello, \x02World\x0304,07!\x03\x02";
 > b = ircf.parse(s);
-[ Block {
+[
+  Block {
     text: 'Hello, ',
     bold: false,
     italic: false,
     underline: false,
     code: false,
+    strikethrough: false,
     reverse: false,
     color: -1,
-    highlight: -1 },
+    highlight: -1
+  },
   Block {
     text: 'World',
     bold: true,
     italic: false,
     underline: false,
     code: false,
+    strikethrough: false,
     reverse: false,
     color: -1,
-    highlight: -1 },
+    highlight: -1
+  },
   Block {
     text: '!',
     bold: true,
     italic: false,
     underline: false,
     code: false,
+    strikethrough: false,
     reverse: false,
     color: 4,
-    highlight: 7 } ]
+    highlight: 7
+  }
+]
 > ircf.renderIrc(b);
 'Hello, \u0002World\u000304,07!\u000f'
 > ircf.renderHtml(b);
@@ -74,12 +82,13 @@ It's a drop-in replacement for the normal `irc-formatting`
 - `.B`: Bold
 - `.I`: Italic
 - `.CODE`: Code block
+- `.S`: Strikethrough
 - `.C`: Color
 - `.R`: Reverse
 - `.O`: Reset (`CTRL + O` on mIRC)
 
 ### HTML Rendering
-`.U`, `.B`, `.I` and `.CODE` will use `<u>`, `<b>`, `<i>` and `<code>` tags respectively, while the others will use `<span>`-tags with the following classes.
+`.U`, `.B`, `.I`,`.CODE` and `.S` will use `<u>`, `<b>`, `<i>`,`<code>` and `<s>` tags respectively, while the others will use `<span>`-tags with the following classes.
 
 - `ircf-reverse`: Reversing is applied (color and higliht are swapped)
 - `ircf-no-color`: The above class is set, but neither of the below are.
