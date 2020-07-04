@@ -27,8 +27,8 @@ ircf.parse = function(text) {
     var nextStart = -1;
 
     switch(ch) {
-      // bold, italic, underline, code blocks
-      case "\x02": case "\x1d": case "\x1f": case "\x11": {
+      // bold, italic, underline, code blocks, strikethrough
+      case "\x02": case "\x1d": case "\x1f": case "\x11": case "\x1e": {
         prev = current;
         current = new Block(prev);
 
@@ -131,6 +131,10 @@ ircf.renderIrc = function(blocks) {
     if(block.code !== prev.code) {
       carets += ircf.CODE;
     }
+    
+    if(block.code !== prev.code) {
+      carets += ircf.S;
+    }
 
     if(block.reverse !== prev.reverse) {
       carets += ircf.R;
@@ -185,6 +189,10 @@ ircf.renderHtml = function(blocks) {
     
     if(block.code) {
       tags.push(ircf.TAG_CODE);
+    }
+    
+    if(block.strikethrough) {
+      tags.push(ircf.TAG_STRIKETHROUGH);
     }
 
     if(block.reverse) {
@@ -295,6 +303,7 @@ ircf.B = '\x02';
 ircf.I = '\x1d';
 ircf.U = '\x1f';
 ircf.CODE = '\x11';
+ircf.S= '\x1e';
 ircf.C = '\x03';
 ircf.R = '\x16';
 ircf.O = '\x0f';
@@ -303,12 +312,14 @@ ircf.KEYS = {
   "\x02": 'bold',
   "\x1d": 'italic',
   "\x1f": 'underline',
-  "\x11": 'code'
+  "\x11": 'code',
+  "\x1e": 'strikethrough'
 }
 ircf.TAG_BOLD = 'b';
 ircf.TAG_ITALIC = 'i';
 ircf.TAG_UNDERLINE = 'u';
 ircf.TAG_CODE = 'code';
+ircf.TAG_STRIKETHROUGH = 'scode';
 ircf.TAG_BLOCK = 'span';
 ircf.TAG_LINE = 'p';
 ircf.CLASS_REVERSE = 'ircf-reverse';
