@@ -27,7 +27,7 @@ ircf.parse = function(text) {
     var nextStart = -1;
 
     switch(ch) {
-      // bold, italic, underline
+      // bold, italic, underline, code blocks
       case "\x02": case "\x1d": case "\x1f": case "\x11": {
         prev = current;
         current = new Block(prev);
