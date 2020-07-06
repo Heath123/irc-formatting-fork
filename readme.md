@@ -2,7 +2,7 @@
 
 Turns IRC formatted text into easy to use blocks. This library is meant to parse and facilitate compiling to and from the irc caret notation. If you're looking for a means to style messages that your bot sends out, or merely strip the formatting, I'd suggest you check out [`irc-colors`](https://www.npmjs.com/package/irc-colors) instead.
 
-Foked from [`irc-formatting`](https://www.npmjs.com/package/irc-formatting) with added code block support.
+Foked from [`irc-formatting`](https://www.npmjs.com/package/irc-formatting) with added code block and strikethrough support.
 
 ## Installation
 `npm install --save Heath123/irc-formatting-fork`<br>
